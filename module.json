@@ -1,0 +1,7 @@
+{
+    "name": "ReproducirTodo",
+    "author": "Chalaoperdi",
+    "version": "1.0.0",
+    "type": "app",
+    "entrypoint": "index.html"
+}

@@ -1,0 +1,315 @@
+:root {
+    --primary-bg: #1a1a1a;
+    --secondary-bg: #2b2b2b;
+    --tertiary-bg: #333;
+    --text-primary: #fff;
+    --text-secondary: #aaa;
+    --border-color: #444;
+    --accent-color: #007bff;
+    --accent-hover: #0056b3;
+    --danger-color: #c82333;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+body.light-mode {
+    --primary-bg: #f0f2f5;
+    --secondary-bg: #fff;
+    --tertiary-bg: #e9ecef;
+    --text-primary: #333;
+    --text-secondary: #777;
+    --border-color: #ddd;
+    --accent-color: #007bff;
+    --accent-hover: #0056b3;
+    --danger-color: #dc3545;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos Generales */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    width: 95%;
+    max-width: 900px;
+    margin: 20px;
+    background-color: var(--secondary-bg);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    overflow: hidden;
+    transition: background-color 0.3s;
+}
+
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--tertiary-bg);
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 600;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 1.1em;
+    color: var(--text-secondary);
+}
+
+#themeSwitcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#themeSwitcher:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+main {
+    padding: 30px;
+}
+
+/* Reproductor de Video */
+.video-player {
+    margin-bottom: 30px;
+}
+
+.video-container {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 */
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Loader */
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid var(--accent-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Controles */
+.controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    align-items: end;
+    margin-bottom: 30px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.control-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+select, input[type="text"], input[type="number"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--tertiary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 1em;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.api-key-group {
+    grid-column: 1 / -1; /* Ocupa todo el ancho */
+}
+
+#playButton, #clearHistoryButton {
+    padding: 15px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#playButton {
+    grid-column: 1 / -1; /* Ocupa todo el ancho */
+}
+
+#playButton:hover, #clearHistoryButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+}
+
+/* Controles de Series */
+#series-controls {
+    display: contents;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Historial */
+.history-section {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+    transition: border-color 0.3s;
+}
+
+.history-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#historyList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#historyList li {
+    background-color: var(--tertiary-bg);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+#historyList li:hover {
+    background-color: var(--primary-bg);
+}
+
+#historyList .item-info {
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+#historyList .info {
+    font-weight: 600;
+}
+
+#historyList .details {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+.delete-history-item {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.1em;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+.delete-history-item:hover {
+    color: var(--danger-color);
+}
+
+#clearHistoryButton {
+    background: var(--danger-color);
+    width: 100%;
+}
+
+#clearHistoryButton:hover {
+    box-shadow: 0 5px 15px rgba(200, 35, 51, 0.4);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--tertiary-bg);
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .controls {
+        grid-template-columns: 1fr;
+    }
+
+    #playButton {
+        margin-top: 10px;
+    }
+
+    #themeSwitcher {
+        top: 10px;
+        right: 10px;
+    }
+}

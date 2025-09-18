@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Video Avanzado</title>
+    <script src="$WEBAPIS/webapi/webapi.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Reproductor de Video</h1>
+            <p>Disfruta de tus películas y series favoritas.</p>
+            <button id="themeSwitcher"><i class="fas fa-sun"></i></button>
+        </header>
+
+        <main>
+            <div class="video-player">
+                <div class="video-container">
+                    <iframe id="videoFrame" allowfullscreen></iframe>
+                    <div id="loader" class="loader hidden"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label for="contentType">Tipo</label>
+                    <select id="contentType">
+                        <option value="movie">Película</option>
+                        <option value="series">Serie</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="videoId">ID del Contenido</label>
+                    <input type="text" id="videoId" placeholder="Ej: tt1234567 o 1399">
+                </div>
+
+                <div id="series-controls" class="series-controls">
+                    <div class="control-group">
+                        <label for="season">Temporada</label>
+                        <input type="number" id="season" value="1" min="1">
+                    </div>
+                    <div class="control-group">
+                        <label for="episode">Episodio</label>
+                        <input type="number" id="episode" value="1" min="1">
+                    </div>
+                </div>
+
+                <div class="control-group api-key-group">
+                    <label for="apiKey">TMDb API Key</label>
+                    <input type="password" id="apiKey" placeholder="Pega tu API Key de TMDb aquí">
+                </div>
+
+                <button id="playButton"><i class="fas fa-play"></i> Reproducir</button>
+            </div>
+
+            <div class="history-section">
+                <h2><i class="fas fa-history"></i> Historial de Reproducción</h2>
+                <ul id="historyList"></ul>
+                <button id="clearHistoryButton"><i class="fas fa-trash"></i> Limpiar Historial</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Reproductor de Video. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
