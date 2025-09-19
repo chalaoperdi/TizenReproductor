@@ -1,0 +1,35 @@
+{
+  "name": "@chalaoperdi/tizenreproductor",
+  "version": "1.0.1",
+  "appName": "Reproductor",
+  "description": "A simple video player for Tizen TVs that plays content from vidsrc.to.",
+  "keywords": [
+    "tizen",
+    "tv",
+    "video",
+    "player"
+  ],
+  "homepage": "https://github.com/chalaoperdi/TizenReproductor#readme",
+  "bugs": {
+    "url": "https://github.com/chalaoperdi/TizenReproductor/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chalaoperdi/TizenReproductor.git"
+  },
+  "license": "ISC",
+  "author": "Chalaoperdi",
+  "type": "commonjs",
+  "main": "index.html",
+  "files": [
+    "index.html",
+    "script.js",
+    "styles.css",
+    "logo.png",
+    "config.xml",
+    "module.json"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
